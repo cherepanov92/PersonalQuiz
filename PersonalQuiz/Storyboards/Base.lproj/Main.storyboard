@@ -130,9 +130,12 @@ BfCfkLE
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fiw-Uh-WA7">
                                         <rect key="frame" x="0.0" y="82.5" width="288" height="38"/>
                                         <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain" title="Button">
+                                        <buttonConfiguration key="configuration" style="plain" title="Ответить">
                                             <fontDescription key="titleFontDescription" style="UICTFontTextStyleTitle3"/>
                                         </buttonConfiguration>
+                                        <connections>
+                                            <action selector="rangedQuestionButtonPressed" destination="isc-TB-LY6" eventType="touchUpInside" id="hK5-Vf-0fZ"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
@@ -198,9 +201,12 @@ BfCfkLE
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Yox-q4-wXY">
                                         <rect key="frame" x="0.0" y="188" width="288" height="38"/>
                                         <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain" title="Button">
+                                        <buttonConfiguration key="configuration" style="plain" title="Ответить">
                                             <fontDescription key="titleFontDescription" style="UICTFontTextStyleTitle3"/>
                                         </buttonConfiguration>
+                                        <connections>
+                                            <action selector="multipleQuestionButtonPressed:" destination="isc-TB-LY6" eventType="touchUpInside" id="b5Z-Ib-Uzx"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
@@ -211,21 +217,33 @@ BfCfkLE
                                         <rect key="frame" x="0.0" y="0.0" width="75" height="34.5"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" title="Button"/>
+                                        <connections>
+                                            <action selector="singleQuestionButtonPressed:" destination="isc-TB-LY6" eventType="touchUpInside" id="Our-sX-9Au"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lgI-Zi-AyI">
                                         <rect key="frame" x="0.0" y="50.5" width="75" height="34.5"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" title="Button"/>
+                                        <connections>
+                                            <action selector="singleQuestionButtonPressed:" destination="isc-TB-LY6" eventType="touchUpInside" id="SU3-ID-GhA"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="btY-Pw-g5L">
                                         <rect key="frame" x="0.0" y="101" width="75" height="34.5"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" title="Button"/>
+                                        <connections>
+                                            <action selector="singleQuestionButtonPressed:" destination="isc-TB-LY6" eventType="touchUpInside" id="Xde-b5-JhB"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="izD-ZP-WJ0">
                                         <rect key="frame" x="0.0" y="151.5" width="75" height="34.5"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" title="Button"/>
+                                        <connections>
+                                            <action selector="singleQuestionButtonPressed:" destination="isc-TB-LY6" eventType="touchUpInside" id="h7O-Up-Nzh"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
@@ -250,13 +268,32 @@ BfCfkLE
                         </constraints>
                         <variation key="default">
                             <mask key="subviews">
-                                <exclude reference="yMu-zg-dnL"/>
                                 <exclude reference="ahK-fq-0GH"/>
                             </mask>
                         </variation>
                     </view>
                     <navigationItem key="navigationItem" title="Вопрос №" id="4Bs-Zo-Eqz"/>
                     <connections>
+                        <outlet property="multipleStackView" destination="yMu-zg-dnL" id="ryE-T3-yX1"/>
+                        <outlet property="questionLabel" destination="Kty-vj-4IB" id="1x9-g2-ZGh"/>
+                        <outlet property="questionProgressView" destination="f5S-AW-mFz" id="7tD-JW-21n"/>
+                        <outlet property="rangedSlider" destination="gQR-06-9Sv" id="gJX-su-mcb"/>
+                        <outlet property="rangedStackView" destination="RYv-Mm-Xm5" id="X7g-Tr-blK"/>
+                        <outlet property="singleStackView" destination="ahK-fq-0GH" id="LMh-bG-8IF"/>
+                        <outletCollection property="singleButtons" destination="m30-ZY-jW1" collectionClass="NSMutableArray" id="pcC-wn-CeC"/>
+                        <outletCollection property="singleButtons" destination="lgI-Zi-AyI" collectionClass="NSMutableArray" id="ky8-GA-dKM"/>
+                        <outletCollection property="singleButtons" destination="btY-Pw-g5L" collectionClass="NSMutableArray" id="0jo-12-RAM"/>
+                        <outletCollection property="singleButtons" destination="izD-ZP-WJ0" collectionClass="NSMutableArray" id="eed-Cq-F7R"/>
+                        <outletCollection property="multipleLabels" destination="Ui2-9u-KcP" collectionClass="NSMutableArray" id="6kt-CS-Vkt"/>
+                        <outletCollection property="multipleLabels" destination="Dbf-NS-eqG" collectionClass="NSMutableArray" id="Qyt-gb-0gi"/>
+                        <outletCollection property="multipleLabels" destination="I7u-pb-6en" collectionClass="NSMutableArray" id="KYJ-O4-2JJ"/>
+                        <outletCollection property="multipleLabels" destination="w8L-8O-dfb" collectionClass="NSMutableArray" id="ffj-vW-ikx"/>
+                        <outletCollection property="multipleSwitches" destination="V6K-Tq-mZY" collectionClass="NSMutableArray" id="pqh-Za-CHA"/>
+                        <outletCollection property="multipleSwitches" destination="acs-27-OLg" collectionClass="NSMutableArray" id="H4p-Tp-4eh"/>
+                        <outletCollection property="multipleSwitches" destination="gtW-Xt-aoy" collectionClass="NSMutableArray" id="Jtz-7q-EHG"/>
+                        <outletCollection property="multipleSwitches" destination="lqX-Db-3Al" collectionClass="NSMutableArray" id="L9t-Hz-7MG"/>
+                        <outletCollection property="rangedLabels" destination="qMu-FR-ob6" collectionClass="NSMutableArray" id="s2Q-ho-OqA"/>
+                        <outletCollection property="rangedLabels" destination="qoL-BE-qR4" collectionClass="NSMutableArray" id="0Mz-8i-pFb"/>
                         <segue destination="89Z-GK-dN2" kind="show" identifier="showResult" id="SjR-fg-ise"/>
                     </connections>
                 </viewController>
